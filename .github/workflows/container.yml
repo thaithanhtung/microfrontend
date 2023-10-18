@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: container
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,8 +16,7 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Change directory to 'container'
-        run: cd container
+      
       - name: Install dependencies
         run: npm install
       - name: Build React App
