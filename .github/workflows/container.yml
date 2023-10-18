@@ -1,5 +1,3 @@
-name: deloy-container-02
-
 on:
   push:
     branches:
