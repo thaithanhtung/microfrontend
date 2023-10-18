@@ -1,13 +1,15 @@
+name: Build and Deploy Container
+
 on:
   push:
     branches:
       - main
-    paths:
-      - 'container/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: npm install
-      - run: npm run build
+      - name: Checkout code
+        run: cd container 
+            npm install
+            npm run build
