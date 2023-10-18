@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Display the path
+        shell: bash
+        run: echo $PATH
       - name: Install dependencies
         run: npm install
-        working-directory: microfrontend/container
       - name: Build container
         run: npm run build
         working-directory: container
