@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Exit container directory
-        run: cd ..
       - name: Install dependencies
         run: npm install
-        working-directory: container
+        working-directory: microfrontend/container
       - name: Build container
         run: npm run build
         working-directory: container
