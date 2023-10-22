@@ -22,7 +22,7 @@ jobs:
       - name: Build React App
         run: npm run build
       - name: Cài đặt AWS CLI
-        uses: install-aws-cli-action
+        uses: chrislennon/action-aws-cli@v1.1
       - name: Go to bucket 
         run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/lastest
         env:
