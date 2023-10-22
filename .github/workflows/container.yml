@@ -26,8 +26,8 @@ jobs:
       - name: test biến môi trường
         run: echo ${{ secrets.AWS_S3_BUCKET_NAME }}
       - name: Go to bucket 
-        run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/lastest
+        run: aws s3 sync dist s3://mfe-dashboard-tn/container/lastest
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: AKIAQ4ML26UW45DQSOOJ
+          AWS_SECRET_ACCESS_KEY: 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
           AWS_DEFAULT_REGION: "ap-southeast-1"
