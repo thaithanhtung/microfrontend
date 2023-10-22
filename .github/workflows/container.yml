@@ -24,7 +24,7 @@ jobs:
       - name: Cài đặt AWS CLI
         uses: unfor19/install-aws-cli-action@v1
       - name: test biến môi trường
-        run: echo ${{ secrets.MY_SECRET_VARIABLE }}
+        run: echo ${{ secrets.AWS_S3_BUCKET_NAME }}
       - name: Go to bucket 
         run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/lastest
         env:
