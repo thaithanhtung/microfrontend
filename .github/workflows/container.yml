@@ -22,7 +22,7 @@ jobs:
       - name: Build React App
         run: npm run build
       - name: Build Docker Image
-        uses: microfrontend/action-aws-cli@v1.0.0
+        uses: chrislennon/action-aws-cli@v1.1
 
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/lastest
         env:
