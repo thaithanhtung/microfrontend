@@ -22,7 +22,7 @@ jobs:
       - name: Build React App
         run: npm run build
       - name: Cài đặt AWS CLI
-        uses: unfor19/install-aws-cli-action@v1
+        uses: chrislennon/action-aws-cli@v1.1
       - name: test biến môi trường
         run: echo ${{ secrets.AWS_S3_BUCKET_NAME }}
       - name: Go to bucket 
