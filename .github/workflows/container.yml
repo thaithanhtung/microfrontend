@@ -21,6 +21,9 @@ jobs:
         run: npm install
       - name: Build React App
         run: npm run build
+        env:
+          PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
+          
       - name: Cài đặt AWS CLI
         uses: unfor19/install-aws-cli-action@v1
       - name: test biến môi trường test
