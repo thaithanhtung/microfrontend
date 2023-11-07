@@ -12,7 +12,7 @@ const prodConfig = {
     new ModuleFederationPlugin({
       name: "container",
       remotes: {
-        marketing: `marketing@https://mfe-dashboard-tn.s3.ap-southeast-1.amazonaws.com/marketing/lastest/remoteEntry.js`,
+        marketing: `marketing@${domain}/marketing/lastest/remoteEntry.js`,
       },
       shared: [
         packageJson.dependencies.react,
