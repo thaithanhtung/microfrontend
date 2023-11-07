@@ -7,6 +7,7 @@ const mount = (el) => {
   console.log("run mount", el);
 
   if (!el) return;
+
   ReactDOM.render(<App />, el);
 };
 
