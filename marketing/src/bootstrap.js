@@ -4,7 +4,7 @@ import App from "./App";
 
 // Mount  function to start up th app
 const mount = (el) => {
-  console.log("run mount");
+  console.log("run mount", el);
 
   if (!el) return;
   ReactDOM.render(<App />, el);
