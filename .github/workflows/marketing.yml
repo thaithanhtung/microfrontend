@@ -1,0 +1,39 @@
+name: Build and Deploy Marketing
+
+on:
+  push:
+    branches:
+      - main
+
+defaults:
+  run:
+    working-directory: marketing
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: npm install
+      - name: Build React App
+        run: npm run build
+      - name: Cài đặt AWS CLI
+        uses: unfor19/install-aws-cli-action@v1
+      - name: test biến môi trường test
+        run: echo ${{ secrets.AWS_S3_BUCKET_NAME }}
+      - name: Go to bucket 
+        run: aws s3 sync dist s3://${{secrets.AWS_S3_BUCKET_NAME}}/marketing/lastest
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: "ap-southeast-1"
+      - name: create invalidation
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/marketing/lastest/remoteEntry.js"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: "ap-southeast-1"
