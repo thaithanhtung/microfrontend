@@ -10,12 +10,13 @@ export default () => {
   console.log("render app nha");
   return (
     <StylesProvider>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/pricing" component={Pricing} />
         </Switch>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <Landing />
     </StylesProvider>
   );
 };
