@@ -8,7 +8,6 @@ import {
 
 import Landing from "./components/Landing";
 import Pricing from "./components/Pricing";
-import { create } from "domain";
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "ma",
@@ -16,7 +15,7 @@ const generateClassName = createGenerateClassName({
 export default () => {
   console.log("render app nha");
   return (
-    <StylesProvider>
+    <StylesProvider generateClassName={generateClassName}>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Landing} />
